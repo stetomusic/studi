@@ -9,13 +9,17 @@ React, Vite und TypeScript. Die Anmeldung läuft über **Microsoft Entra ID**
 
 ```bash
 npm install
-cp .env.example .env.local   # Werte eintragen, siehe unten
-npm run dev                  # http://localhost:5173
+npm run dev    # http://localhost:5173 öffnen und mit dem PH-Konto anmelden
 ```
 
 `npm run build` erzeugt die fertige App in `dist/`.
 
 ## Microsoft Entra einrichten
+
+Die App-Registrierung `studi` existiert bereits; Client-ID und Tenant-ID stehen
+in `.env` (öffentliche Kennungen, kein Geheimnis). Eigene Werte zum Testen
+kommen in eine `.env.local` (Muster: `.env.example`), die nicht committet wird.
+So wurde die Registrierung angelegt:
 
 1. Im [Entra Admin Center](https://entra.microsoft.com) unter
    **Identität → Anwendungen → App-Registrierungen → Neue Registrierung**:
