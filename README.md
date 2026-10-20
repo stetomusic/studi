@@ -48,3 +48,14 @@ Ein Client-Secret wird **nicht** benötigt und darf nicht ins Repo.
 | `src/main.tsx` | Startet MSAL, verarbeitet den Login-Redirect |
 | `src/App.tsx` | Routen; ohne Login wird nur die Anmeldeseite gezeigt |
 | `src/pages/` | Start, Login, Profil und Platzhalter für News, Termine, Stundenplan, Mensa, Kontakte |
+
+## Auf All-Inkl (oder anderem Apache-Webspace) veröffentlichen
+
+1. In Entra unter **Authentifizierung** die Adresse als SPA-Umleitungs-URI
+   ergänzen, z. B. `https://studi.example.at/` (HTTPS, mit Schrägstrich am Ende).
+2. Bauen mit dieser Adresse:
+   `VITE_ENTRA_REDIRECT_URI=https://studi.example.at/ npm run build`
+3. Den **Inhalt** von `dist/` (inkl. der versteckten Datei `.htaccess`) per FTP
+   in das Verzeichnis der (Sub-)Domain hochladen. SSL muss für die Domain aktiv sein.
+
+Die App muss im Hauptverzeichnis der (Sub-)Domain liegen, nicht in einem Unterordner.

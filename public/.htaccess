@@ -1,0 +1,12 @@
+# Für Apache-Hosting (z. B. All-Inkl): HTTPS erzwingen und alle App-Routen auf index.html leiten
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Service Worker und index.html nie cachen, damit Updates sofort ankommen
+<FilesMatch "^(index\.html|sw\.js|registerSW\.js|manifest\.webmanifest)$">
+  Header set Cache-Control "no-cache"
+</FilesMatch>
