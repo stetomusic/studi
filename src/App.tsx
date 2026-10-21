@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Placeholder from "./pages/Placeholder";
 import Profile from "./pages/Profile";
+import Mensa from "./pages/Mensa";
 
 export default function App() {
   return (
@@ -19,7 +20,7 @@ export default function App() {
             <Route path="news" element={<Placeholder title="News" text="Aktuelle Meldungen der PH Burgenland." />} />
             <Route path="termine" element={<Placeholder title="Termine" text="Fristen, Prüfungen und Veranstaltungen." />} />
             <Route path="stundenplan" element={<Placeholder title="Stundenplan" text="Deine Lehrveranstaltungen der Woche." />} />
-            <Route path="mensa" element={<Placeholder title="Mensa" text="Speiseplan der Woche." />} />
+            <Route path="mensa" element={<Mensa />} />
             <Route path="kontakte" element={<Placeholder title="Kontakte" text="Studienservice, Lehrende und wichtige Stellen." />} />
             <Route path="profil" element={<Profile />} />
             <Route path="*" element={<Navigate to="/" replace />} />
